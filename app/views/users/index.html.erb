@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>Users#index</h1>
 <p>Find me in app/views/users/index.html.erb</p>
 
@@ -6,4 +7,14 @@
 <p>
 <% @posts.each do |post| %>
 <%= post.p_content %></p>
+=======
+<% if current_user %>
+	<ol>
+		<% @users.each do |t| %>
+			<li>
+				<%= link_to t.username, user_path(t.id) %>
+			</li>
+		<% end %>
+	</ol>
+>>>>>>> d220051f21cb8b6665a187266c9fa166924f0cef
 <% end %>

@@ -3,3 +3,9 @@
 </h1>
 
 <%= render 'form' %>
+
+<% if current_user %>
+	<p>
+		<%= link_to 'delete account?', user_path(current_user), method: :delete %>
+	</p>
+<% end %>

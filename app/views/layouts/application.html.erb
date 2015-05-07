@@ -16,14 +16,34 @@
 
 	<nav>
 		<ul>
-			<li> <%= link_to 'home', users_path %></li>
+			<li>
+			 <%= link_to 'home', home_index_path %>
+			</li>
+			
 			<% if current_user %>
-			<li> <%= link_to 'log out', logout_path, method: :delete %> </li>
-			<li> my posts (extra)</li>
-			<li> All user _need a link all users</li>
+				<li>
+					<%= link_to 'log out', logout_path, method: :delete %>
+				</li>
+				
+				<li>
+					my posts (extra)
+				</li>
+				
+				<li>
+					<%= link_to 'all users', users_path %>
+				</li>
+
+				<li>
+					<%= link_to 'edit profile', edit_user_path(current_user) %>
+				</li>
 			<% else %>
-			<li> <%= link_to 'log in', login_path %> </li>
-			<li><%= link_to 'sign up', new_user_path %></li>
+				<li>
+					<%= link_to 'log in', login_path %>
+				</li>
+				
+				<li>
+					<%= link_to 'sign up', new_user_path %>
+				</li>
 			<% end %>
 		</ul>
 	</nav>
