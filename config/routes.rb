@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-resources :users
+  resources :users
   
   resources :posts , shallow: true, only:[:create, :new, :show, :destroy]  do
      resources :comments, only:[:new, :create, :destroy]
