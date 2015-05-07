@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
   		flash[:notice]= "Succesfully logged in."
   		redirect_to @user
     else
-      render '/'
+      render :new
     end
   end
 
