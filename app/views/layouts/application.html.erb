@@ -17,10 +17,14 @@
 	<nav>
 		<ul>
 			<li> <%= link_to 'home', users_path %></li>
+			<% if current_user %>
+			<li> <%= link_to 'log out', logout_path, method: :delete %> </li>
 			<li> my posts (extra)</li>
-			<li> All user _need a link</li>
+			<li> All user _need a link all users</li>
+			<% else %>
 			<li> <%= link_to 'log in', login_path %> </li>
-			<li> <%= link_to 'log out', logout_path %> </li>
+			<li><%= link_to 'sign up', new_user_path %></li>
+			<% end %>
 		</ul>
 	</nav>
 
@@ -28,3 +32,11 @@
 
 	</body>
 </html>
+			
+						
+
+
+
+
+			
+		
