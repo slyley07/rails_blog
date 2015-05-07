@@ -1,7 +1,9 @@
-<h1>
-	Welcome to Gossiper!
-</h1>
-
-<h2>
-	The only source for all of your gossip!
-</h2>
+<% if current_user %>
+	<ol>
+		<% @users.each do |t| %>
+			<li>
+				<%= link_to t.username, user_path(t.id) %>
+			</li>
+		<% end %>
+	</ol>
+<% end %>

@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
 
+  get '/', to: 'home#index', as: 'home_index'
 
   resources :users
   
   resources :posts , shallow: true, only:[:create, :new, :show, :destroy]  do
-     resources :comments, only:[:new, :create, :destroy]
-   end
-
-  root 'users#index'
+    resources :comments, only:[:new, :create, :destroy]
+  end
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

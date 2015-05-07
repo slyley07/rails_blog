@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+
   def index
     @users = User.all
   end
@@ -8,34 +10,38 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
   end
   
   def edit
-    @user = User.find(params[:id])
   end
 
   def create
-    @user = User.new(params.require(:user).permit(:username, :fname, :lname, :email, :password))
+    @user = User.new(user_params)
     if @user.save
-      redirect_to @user
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
     else
       render :new
     end
   end
 
   def update
-    @user = User.find(params[:id])
-    redirect_to @user
+    @user.update(user_params)
+    redirect_to user_path(@user)
   end
 
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
     session[:user_id] = nil
     redirect_to users_path
   end
 
+  private
+    def set_user
+      @user = User.find(params[:id])
+    end
 
-
+    def user_params
+      params.require(:user).permit(:username, :fname, :lname, :email, :password)
+    end
 end

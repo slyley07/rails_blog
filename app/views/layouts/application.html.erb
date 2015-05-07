@@ -17,7 +17,7 @@
 	<nav>
 		<ul>
 			<li>
-			 <%= link_to 'home', users_path %>
+			 <%= link_to 'home', home_index_path %>
 			</li>
 			
 			<% if current_user %>
@@ -30,11 +30,11 @@
 				</li>
 				
 				<li>
-					All user _need a link all users
+					<%= link_to 'all users', users_path %>
 				</li>
 
 				<li>
-					<%= link_to 'edit profile', edit_user_path %>
+					<%= link_to 'edit profile', edit_user_path(current_user) %>
 				</li>
 			<% else %>
 				<li>
