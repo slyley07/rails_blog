@@ -4,9 +4,17 @@ Rails.application.routes.draw do
 
   resources :users
   
+<<<<<<< HEAD
+  resources :posts , shallow: true, only:[:create, :new, :show, :destroy, :index]  do
+     resources :comments, only:[:new, :create, :destroy]
+   end
+
+  root 'users#index'
+=======
   resources :posts , shallow: true, only:[:create, :new, :show, :destroy]  do
     resources :comments, only:[:new, :create, :destroy]
   end
+>>>>>>> d220051f21cb8b6665a187266c9fa166924f0cef
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
