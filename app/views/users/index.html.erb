@@ -1,9 +1,9 @@
 <% if current_user %>
-	<ul>
+	<ol>
 		<% @users.each do |t| %>
 			<li>
-				<%= t.username %>
+				<%= link_to t.username, user_path(t.id) %>
 			</li>
 		<% end %>
-	</ul>
+	</ol>
 <% end %>
