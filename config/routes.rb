@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :posts , shallow: true, only:[:create, :new, :show, :destroy]  do
      resources :comments, shallow: true, only:[:new, :create, :destroy]
    end
+
+  root 'users#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
