@@ -2,12 +2,38 @@
 	All posts
 </h1>
 
-<% @posts.each do |t| %>
+<%= form_for @post do |t| %>
+	<p>
+		<%= t.label :title %>
+		<%= t.text_field :title %>
+	</p>
+
+	<p>
+		<%= t.label :post %>
+		<%= t.text_field :p_content %>
+	</p>
+
+	<p>
+		<%= t.submit %>
+	</p>
+<% end %>
+
+<% @posts.reverse_each do |post| %>
 	<h2>
-		<%= t.title %>
+		<%= post.title %>
 	</h2>
 
 	<p>
-		<%= t.p_content %>
+		<%= post.p_content %>
 	</p>
+
+	<ul>
+		<li>
+			<%= post.user.username %>
+		</li>
+		
+		<li>
+			<%= post.created_at %>
+		</li>
+	</ul>
 <% end %>
