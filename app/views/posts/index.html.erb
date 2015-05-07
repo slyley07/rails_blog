@@ -1,0 +1,13 @@
+<h1>
+	All posts
+</h1>
+
+<% @posts.each do |t| %>
+	<h2>
+		<%= t.title %>
+	</h2>
+
+	<p>
+		<%= t.p_content %>
+	</p>
+<% end %>

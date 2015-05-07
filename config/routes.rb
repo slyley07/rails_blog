@@ -1,20 +1,22 @@
 Rails.application.routes.draw do
 
+  get '/posts', to: 'posts#index', as: 'posts'
+
+  get '/posts/new', to: 'posts#new', as: 'posts_new'
+
+  post '/posts', to: 'posts#create'
+
+  delete '/posts/:id', to: 'posts#destory'
+
+
   get '/', to: 'home#index', as: 'home_index'
 
   resources :users
-  
-<<<<<<< HEAD
-  resources :posts , shallow: true, only:[:create, :new, :show, :destroy, :index]  do
-     resources :comments, only:[:new, :create, :destroy]
-   end
 
-  root 'users#index'
-=======
-  resources :posts , shallow: true, only:[:create, :new, :show, :destroy]  do
-    resources :comments, only:[:new, :create, :destroy]
-  end
->>>>>>> d220051f21cb8b6665a187266c9fa166924f0cef
+  # resources :posts , shallow: true, only:[:create, :new, :show, :destroy]  do
+  #   resources :comments, only:[:new, :create, :destroy]
+  # end
+
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

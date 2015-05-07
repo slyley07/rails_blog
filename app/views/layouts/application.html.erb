@@ -5,7 +5,7 @@
 	  	RailsBlog
 	  </title>
 
-	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 	  
 	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	  
@@ -26,7 +26,11 @@
 				</li>
 				
 				<li>
-					my posts (extra)
+					<%= link_to 'posts', posts_path %>
+				</li>
+
+				<li>
+					<%= link_to 'new post', posts_new_path %>
 				</li>
 				
 				<li>
@@ -52,11 +56,3 @@
 
 	</body>
 </html>
-			
-						
-
-
-
-
-			
-		
