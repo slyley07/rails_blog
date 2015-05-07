@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+
+
   def index
     @users = User.all
   end
@@ -8,7 +10,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
   end
   
   def edit
@@ -18,7 +19,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params.require(:user).permit(:username, :fname, :lname, :email, :password))
     if @user.save
-      redirect_to @user
+      redirect_to users_path(@user)
     else
       render :new
     end
@@ -26,7 +27,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    redirect_to @user
+    @user.update(params.require(:user).permit(:username, :fname, :lname, :email, :password))
+    redirect_to user_path(@user)
   end
 
   def destroy
@@ -36,6 +38,10 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  private
 
+  def set_user
+    @user = User.find(params[:id])
+  end
 
 end

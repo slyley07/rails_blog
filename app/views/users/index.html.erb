@@ -1,7 +1,9 @@
-<h1>
-	Welcome to Gossiper!
-</h1>
-
-<h2>
-	The only source for all of your gossip!
-</h2>
+<% if current_user %>
+	<ul>
+		<% @users.each do |t| %>
+			<li>
+				<%= t.username %>
+			</li>
+		<% end %>
+	</ul>
+<% end %>

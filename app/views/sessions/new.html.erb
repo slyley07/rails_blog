@@ -1,8 +1,12 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<h1>
+	Sessions#new
+</h1>
+
+<p>
+	Find me in app/views/sessions/new.html.erb
+</p>
+
 <%= form_tag('/login', method: :post) do %>
-
-
 	<p>
 		<%= label_tag :username %>
 		<%= text_field_tag :username %>
@@ -15,4 +19,5 @@
 
 	<p>
 		<%= submit_tag :submit %>
+	</p>
 <% end %>
