@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
   		flash[:notice]= "Succesfully logged in."
   		redirect_to @user
   end
+end
 
   def destroy
   	session[:user_id] = nil
