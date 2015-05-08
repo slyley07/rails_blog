@@ -2,25 +2,12 @@
 	All posts
 </h1>
 
-<%= form_for @post do |post| %>
-	<p>
-		<%= post.label :title %>
-		<%= post.text_field :title %>
-	</p>
+#form_for helper and arguments
 
-	<p>
-		<%= post.label :post %>
-		<%= post.text_field :p_content %>
-	</p>
-
-	<p>
-		<%= post.submit %>
-	</p>
-<% end %>
 
 <% @posts.reverse_each do |post| %>
 	<h2>
-		<%= link_to post.title, post_path(post.id) %>
+		<%= link_to post.title, user_posts_path(@user.id) %>
 	</h2>
 
 	<p>

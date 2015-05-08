@@ -1,9 +1,17 @@
 <h1>
-	<%= @post.title %>
+<%= "#{@user.username}'s Posts" %>
 </h1>
+
+<h2>
+	<%= @post.title %>
+</h2>
 <p>
 	<%= @post.p_content %>
 </p>
+
+<% if current_user %>
+	<%= link_to 'delete post?', user_post_path(@user.id), method: :delete %>
+<% end %>
 
 
 <hr>

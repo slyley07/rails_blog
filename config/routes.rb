@@ -11,10 +11,10 @@ Rails.application.routes.draw do
 
   get '/', to: 'home#index', as: 'home_index'
 
-  resources :users
-
-  resources :posts do
-    resources :comments, only:[:new, :create, :destroy]
+  resources :users do
+    resources :posts do
+      resources :comments, only:[:new, :create, :destroy]
+    end
   end
 
 
