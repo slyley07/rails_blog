@@ -1,0 +1,23 @@
+
+<h1>
+	<%= "#{@user.username}'s Posts" %>
+</h1>
+
+<ul>
+	<% @user_posts.reverse_each do |post| %>
+		<h2>
+			<%= link_to post.title, user_posts_path(@user.id) %>
+		</h2>
+		
+		<p>
+			<%= post.p_content %>
+		</p>
+
+		<ul>
+			<li>
+				<%= post.created_at %>
+			</li>
+		</ul>
+	<% end %>
+</ul>
+
