@@ -11,15 +11,10 @@
 	  
 	  <%= csrf_meta_tags %>
 	</head>
-
 	<body>
-
+	<div>
 	<nav>
-		<ul>
-			<li>
-			 <%= link_to 'home', home_index_path %>
-			</li>
-			
+		<ul class="ul_nav">
 			<% if current_user %>
 				<li>
 					<%= link_to 'log out', logout_path, method: :delete %>
@@ -41,18 +36,15 @@
 					<%= link_to 'edit profile', edit_user_path(current_user) %>
 				</li>
 			<% else %>
-				<li>
-					<%= link_to 'log in', login_path %>
-				</li>
-				
-				<li>
-					<%= link_to 'sign up', new_user_path %>
-				</li>
+				<li><%= link_to 'home', home_index_path %>  </li>
+				<li><%= link_to 'log in', login_path %>  </li>
+				<li><%= link_to 'sign up', new_user_path %>  </li>
 			<% end %>
 		</ul>
 	</nav>
-
+	</div>
+	<div class="wrapper">
 	<%= yield %>
-
+	</div>
 	</body>
 </html>
