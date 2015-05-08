@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
  	def index
  		@posts = Post.all
+ 		@post = Post.new
  	end
 
   def new
@@ -10,6 +11,8 @@ class PostsController < ApplicationController
   end
 
   def show
+  	@comment = Comment.new
+  	@post_com = @post.comments
   end
 
   def edit

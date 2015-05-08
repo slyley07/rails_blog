@@ -1,2 +1,21 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>
+	<%= "#{@user.username}'s Posts" %>
+</h1>
+
+<ul>
+	<% @user_posts.reverse_each do |post| %>
+		<h2>
+			<%= link_to post.title, post_path(post.id) %>
+		</h2>
+		
+		<p>
+			<%= post.p_content %>
+		</p>
+
+		<ul>
+			<li>
+				<%= post.created_at %>
+			</li>
+		</ul>
+	<% end %>
+</ul>

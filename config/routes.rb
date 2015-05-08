@@ -1,21 +1,21 @@
 Rails.application.routes.draw do
 
-  get '/posts', to: 'posts#index', as: 'posts'
+  # get '/posts', to: 'posts#index', as: 'posts'
 
-  get '/posts/new', to: 'posts#new', as: 'posts_new'
+  # get '/posts/new', to: 'posts#new', as: 'posts_new'
 
-  post '/posts', to: 'posts#create'
+  # post '/posts', to: 'posts#create'
 
-  delete '/posts/:id', to: 'posts#destory'
+  # delete '/posts/:id', to: 'posts#destory'
 
 
   get '/', to: 'home#index', as: 'home_index'
 
   resources :users
 
-  # resources :posts , shallow: true, only:[:create, :new, :show, :destroy]  do
-  #   resources :comments, only:[:new, :create, :destroy]
-  # end
+  resources :posts do
+    resources :comments, only:[:new, :create, :destroy]
+  end
 
 
   get '/login', to: 'sessions#new'

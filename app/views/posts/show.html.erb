@@ -2,6 +2,41 @@
 	<%= @post.title %>
 </h1>
 <p>
-	<%= @post.body %>
+	<%= @post.p_content %>
 </p>
 
+
+<hr>
+<% if current_user %>
+	<h5>
+		Post a comment below!
+	</h5>
+	
+	<%= form_for [@post, @comment] do |comment| %>
+		<%= comment.text_area :body %>
+
+		<p>
+			<%= comment.submit %>
+		</p>
+	<% end %>
+<% else %>
+	<h5>
+		<%= link_to 'Login', login_path %>to comment!
+	</h5>
+<% end %>
+
+<% @post_com.each do |comment| %>
+	<p>
+		<%= comment.body %>
+	</p>
+
+	<ul>
+		<li>
+			<%= comment.user.username %>
+		</li>
+
+		<li>
+			<%= comment.created_at %>
+		</li>
+	</ul>
+<% end %>

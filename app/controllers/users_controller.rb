@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user_posts = @user.posts
   end
   
   def edit
