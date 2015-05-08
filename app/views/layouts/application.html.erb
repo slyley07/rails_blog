@@ -26,11 +26,11 @@
 				</li>
 				
 				<li>
-					<%= link_to 'feed', posts_path %>
+					<%= link_to 'feed', user_posts_path(params[:id]) %>
 				</li>
 
 				<li>
-					<%= link_to 'profile', user_path(current_user) %>
+					<%= link_to 'profile', user_path(params[:id]) %>
 				</li>
 				
 				<li>
