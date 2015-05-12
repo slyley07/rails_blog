@@ -69,7 +69,7 @@ a:visited {
   color: #F17A00;
 }
 ul li:hover { 
-  background-color: rgba(241, 122, 0,.3);
+  background-color: rgba(241, 122, 0, 0.3);
 }
 a:active { 
   color: #F17A00;
@@ -77,7 +77,7 @@ a:active {
 /*SESSION NEW______________________*/
 .div_login{
 	width: 300px;
-	background-color: rgba(255,255,255,.5);
+	background-color: rgba(255, 255, 255, 0.5);
 /*	margin-top: -11px;
 */	text-align: center;
 	padding: 1px 0px;
@@ -88,7 +88,7 @@ a:active {
 
 }
 .submit_login input{
-	background-color:rgba(255, 217,141,.3);
+	background-color:rgba(255, 217, 141, 0.3);
 	font-size: 	15px;
 	text-align: left;
 	padding-right: 10px;
@@ -103,7 +103,7 @@ a:active {
 }
 .posts_show{
 	width: 300px;
-	background-color: rgba(255,255,255,.5);
+	background-color: rgba(255,255,255,0.8);
 	text-align: center;
 	padding: 1px 0px;
 	margin: 0 auto;

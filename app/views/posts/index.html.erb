@@ -2,12 +2,12 @@
 	All posts
 </h1>
 
-#form_for helper and arguments
-
+<!-- form_for helper and arguments
+ -->
 
 <% @posts.reverse_each do |post| %>
 	<h2>
-		<%= link_to post.title, user_posts_path(@user.id) %>
+		<%= link_to post.title, post_path(post.id) %>
 	</h2>
 
 	<p>
@@ -18,9 +18,23 @@
 		<li>
 			<%= post.user.username %>
 		</li>
-		
+	
 		<li>
 			<%= post.created_at %>
 		</li>
+
+			<% post.comments.reverse_each do |comment| %>
+				<li>
+					<%= comment.body %>
+				</li>
+
+				<li>
+					<%= comment.user.username %>
+				</li>
+
+				<li>
+					<%= comment.created_at %>
+				</li>
+			<% end %>
 	</ul>
 <% end %>
