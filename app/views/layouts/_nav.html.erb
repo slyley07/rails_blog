@@ -1,39 +1,39 @@
 <div>
-			<nav>
-				<ul class="ul_nav">
-					<% if current_user %>
-						<li>
-							<%= link_to 'log out', logout_path, method: :delete %>
-						</li>
-						
-						<li>
-							<%= link_to 'feed', posts_path %>
-						</li>
+	<nav>
+		<ul class="ul_nav">
+			<% if current_user %>
+				<li>
+					<%= link_to 'log out', logout_path, method: :delete %>
+				</li>
+				
+				<li>
+					<%= link_to 'feed', posts_path %>
+				</li>
 
-						<li>
-							<%= link_to 'new post', new_post_path %>
-						</li>
+				<li>
+					<%= link_to 'new post', new_post_path %>
+				</li>
 
-						<li>
-							<%= link_to 'profile', user_path(current_user) %>
-						</li>
-						
-						<li>
-							<%= link_to 'all users', users_path %>
-						</li>
+				<li>
+					<%= link_to 'profile', user_path(current_user) %>
+				</li>
+				
+				<li>
+					<%= link_to 'all users', users_path %>
+				</li>
 
-						<li>
-							<%= link_to 'edit profile', edit_user_path(current_user) %>
-						</li>
-					<% else %>				
-						<li>
-							<%= link_to 'log in', login_path %>
-						</li>
-						
-						<li>
-							<%= link_to 'sign up', new_user_path %>
-						</li>
-					<% end %>
-				</ul>
-			</nav>
-		</div>
+				<li>
+					<%= link_to 'edit profile', edit_user_path(current_user) %>
+				</li>
+			<% else %>				
+				<li>
+					<%= link_to 'log in', login_path %>
+				</li>
+				
+				<li>
+					<%= link_to 'sign up', new_user_path %>
+				</li>
+			<% end %>
+		</ul>
+	</nav>
+</div>

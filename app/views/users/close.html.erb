@@ -1,0 +1,25 @@
+<h1>
+	Delete account!
+</h1>
+
+<p>
+	Warning! You are about to delete your account. This cannot be undone!
+</p>
+
+<h3>
+	Confirm your password
+</h3>
+
+<%= form_for current_user, method: :delete do |f| %>
+	<div>
+		<%= f.label :password %>
+		
+		<br>
+		
+		<%= f.password_field :password %>
+	</div>
+
+	<div>
+		<%= f.submit "Close my account :(" %>
+	</div>
+<% end %>

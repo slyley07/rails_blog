@@ -1,56 +1,55 @@
 <div class="posts_show">
+	<h2 id="posts_show_title">
+		<%= @post.title %>
+	</h2>
 
-<h2 id="posts_show_title">
-	<%= @post.title %>
-</h2>
-
-<p id="posts_show_body">
-	<%= @post.p_content %>
-</p>
-
-<p>
-	<%= @post.user.username %>
-</p>
-</hr>
-
-<% if current_user and current_user == @post.user %>
-	<%= link_to 'Delete Post?', post_path, method: :delete %>
-<% end %>
-
-
-<% if current_user %>
-	<h5>
-		Post a comment below!
-	</h5>
-	
-	<%= form_for [@post, @comment] do |comment| %>
-		<%= comment.text_area :body %>
-
-		<p>
-			<%= comment.submit %>
-		</p>
-	<% end %>
-<% else %>
-	<h5>
-		<%= link_to 'Login', login_path %> to comment!
-	</h5>
-<% end %>
-
-<% @comments.reverse_each do |comment| %>
-	<p>
-		<%= comment.body %>
+	<p id="posts_show_body">
+		<%= @post.p_content %>
 	</p>
 
-	<ul>
-		<li>
-			<%= comment.user.username %>
-		</li>
+	<p>
+		<%= @post.user.username %>
+	</p>
+	</hr>
 
-		<li>
-			<%= comment.created_at %>
-		</li>
-	</ul>
-<% end %>
+	<% if current_user and current_user == @post.user %>
+		<%= link_to 'Delete Post?', post_path, method: :delete %>
+	<% end %>
+
+
+	<% if current_user %>
+		<h5>
+			Post a comment below!
+		</h5>
+		
+		<%= form_for [@post, @comment] do |comment| %>
+			<%= comment.text_area :body %>
+
+			<p>
+				<%= comment.submit %>
+			</p>
+		<% end %>
+	<% else %>
+		<h5>
+			<%= link_to 'Login', login_path %> to comment!
+		</h5>
+	<% end %>
+
+	<% @post.comments.reverse_each do |comment| %>
+		<p>
+			<%= comment.body %>
+		</p>
+
+		<ul>
+			<li>
+				<%= comment.user.username %>
+			</li>
+
+			<li>
+				<%= comment.created_at %>
+			</li>
+		</ul>
+	<% end %>
 </div>
 
 

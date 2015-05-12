@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:index, :new, :show]
+  
   def index
     @users = User.all
     @post = Post.new
@@ -12,19 +13,25 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
     @user_posts = @user.posts
   end
   
   def edit
+    @user = current_user
+  end
+
+  def password
+    @user = current_user
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to user_path(@user), notice: "New account created!"
     else
-      render :new
+      render :new, notice: "There was a problem creating your account."
     end
   end
 
@@ -33,10 +40,18 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def close
+  end
+
   def destroy
-    @user.destroy
-    session[:user_id] = nil
-    redirect_to users_path
+    if @user.password == params[:user][:password]
+      @user.destroy
+      session[:user_id] = nil
+      redirect_to root_path
+    else
+      flash[:alert] = "That was the wrong password!"
+      render :close
+    end
   end
 
   private
@@ -47,4 +62,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:username, :fname, :lname, :email, :password)
     end
+
 end

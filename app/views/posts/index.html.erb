@@ -18,9 +18,23 @@
 		<li>
 			<%= post.user.username %>
 		</li>
-		
+	
 		<li>
 			<%= post.created_at %>
 		</li>
+
+			<% post.comments.reverse_each do |comment| %>
+				<li>
+					<%= comment.body %>
+				</li>
+
+				<li>
+					<%= comment.user.username %>
+				</li>
+
+				<li>
+					<%= comment.created_at %>
+				</li>
+			<% end %>
 	</ul>
 <% end %>
