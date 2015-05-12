@@ -10,9 +10,9 @@ class PostsController < ApplicationController
   end
 
   def show
-  	@user = User.find_by(user_id: params[:user_id])
-  	@comment = Comment.new
-  	@post_com = @post.comments
+    # @user = User.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments.all
   end
 
   def edit
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   def create
   	@post = Post.new(post_params)
   	if @post.save
-  		redirect_to user_posts_path
+  		redirect_to posts_path
   	else
   		render :new
   	end
@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 
   def update
   	if @post.update(post_params)
-  		redirect_to user_posts_path
+  		redirect_to posts_path
   	else
   		render :edit
   	end
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
   def destroy
   	@post.destroy
   	#comment destroy too
-  	redirect_to user_posts_path
+  	redirect_to posts_path
   end
 
   private

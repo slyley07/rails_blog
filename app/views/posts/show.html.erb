@@ -1,24 +1,23 @@
 <div class="posts_show">
-<h1>
-<%= "#{@user.username}'s Posts" %>
-</h1>
 
 <h2 id="posts_show_title">
 	<%= @post.title %>
 </h2>
+
 <p id="posts_show_body">
 	<%= @post.p_content %>
+</p>
 
+<p>
+	<%= @post.user.username %>
 </p>
 </hr>
-<div>
 
-<% if current_user %>
-	<%= link_to 'delete post?', user_post_path(@user.id), method: :delete %>
+<% if current_user and current_user == @post.user %>
+	<%= link_to 'Delete Post?', post_path, method: :delete %>
 <% end %>
 
 
-<hr>
 <% if current_user %>
 	<h5>
 		Post a comment below!
@@ -33,11 +32,11 @@
 	<% end %>
 <% else %>
 	<h5>
-		<%= link_to 'Login', login_path %>to comment!
+		<%= link_to 'Login', login_path %> to comment!
 	</h5>
 <% end %>
 
-<% @post_com.each do |comment| %>
+<% @comments.reverse_each do |comment| %>
 	<p>
 		<%= comment.body %>
 	</p>
@@ -52,3 +51,7 @@
 		</li>
 	</ul>
 <% end %>
+</div>
+
+
+<hr>
