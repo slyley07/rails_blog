@@ -2,7 +2,25 @@
 <h1>
 	<%= "#{@user.username}'s Posts" %>
 </h1>
-
+<ul>
+	<% if current_user and current_user != @user %>
+		<div class="thingy">
+			<% if current_user and current_user.following.include?(@user) %>
+				<div class="unfollow">
+					<li>
+						<%= link_to 'Unfollow', unfollow_user_path(@user) %>
+					</li>
+				</div>
+			<% else %>
+				<div class="follow">
+					<li>
+						<%= link_to 'Follow', follow_user_path(@user) %>
+					</li>
+				</div>
+			<% end %>
+		</div>
+	<% end %>
+</ul>
 <ul>
 	<% @user_posts.reverse_each do |post| %>
 		<h2>
