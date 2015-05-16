@@ -2,12 +2,13 @@ class PostsController < ApplicationController
  	before_action :set_post, only: [:show, :edit, :update, :destroy]
 
  	def index
+    @post = Post.new
  		@posts = Post.all
  	end
 
-  def new
-  	@post = Post.new
-  end
+  # def new
+  # 	@post = Post.new
+  # end
 
   def show
     @comment = Comment.new
@@ -20,7 +21,10 @@ class PostsController < ApplicationController
   def create
   	@post = Post.new(post_params)
   	if @post.save
-  		redirect_to posts_path
+      respond_to do |format|
+    		format.html { redirect_to posts_path }
+        format.js
+      end
   	else
   		render :new
   	end

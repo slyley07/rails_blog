@@ -54,6 +54,31 @@ class UsersController < ApplicationController
     end
   end
 
+  def follow
+    @relationship = Relationship.new(follower_id: current_user.id, followed_id: params[:id])
+    @user = User.find(params[:id])
+    if @relationship.save
+      respond_to do |format|
+        format.js
+      end
+      # flash[:notice] = "You're now following #{@user.username}"
+      
+    else
+      # flash[:alert] = "There was a problem following that user!"
+    end
+    redirect_to @user
+  end
+
+  def unfollow
+    @relationship = Relationship.find_by(follower_id: current_user, followed_id: params[:id])
+    @user = User.find(params[:id])
+    if @relationship and @relationship.destroy
+      flash[:notice] = "You've successfully unfollowed #{@user.username}"
+    else
+      flash[:alert] = "There was a problem unfollowing that user"
+    end
+    redirect_to @user
+  end
   private
     def set_user
       @user = User.find(params[:id])

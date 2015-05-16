@@ -4,6 +4,7 @@
 
 <!-- form_for helper and arguments
  -->
+<<<<<<< HEAD
 <div class="posts_index">
 <hr>
 <% @posts.reverse_each do |post| %>
@@ -29,3 +30,31 @@
 			<% end %>
 </div>
 
+=======
+
+ <h1>
+	Add a post
+</h1>
+
+<%= form_for @post, remote: true do |post| %>
+
+	<p>
+		<%= post.label :title %>
+		<%= post.text_field :title %>
+	</p>
+
+	<p>
+		<%= post.label :post %>
+		<%= post.text_area :p_content %>
+	</p>
+
+	<p>
+		<%= post.submit %>
+	</p>
+<% end %>
+<section id="posts_container">
+	<% @posts.reverse_each do |post| %>
+		<%= render partial: 'post', object: post %>
+	<% end %>
+</section>
+>>>>>>> master

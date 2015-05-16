@@ -22,7 +22,7 @@
 			Post a comment below!
 		</h5>
 		
-		<%= form_for [@post, @comment] do |comment| %>
+		<%= form_for [@post, @comment], remote: true do |comment| %>
 			<%= comment.text_area :body %>
 
 			<p>
@@ -35,6 +35,7 @@
 		</h5>
 	<% end %>
 
+<<<<<<< HEAD
 	<% @post.comments.reverse_each do |comment| %>
 			<p>
 			<%= comment.body %>
@@ -45,6 +46,13 @@
 			</p>
 
 	<% end %>
+=======
+	<section id="comments_container">
+		<% @comments.reverse_each do |comment| %>
+			<%= render partial: 'comments/comment', object: comment%>
+		<% end %>
+	</section>
+>>>>>>> master
 </div>
 
 
