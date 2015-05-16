@@ -6,33 +6,26 @@
 			</p>
 		<% end %>
 	<% end %>
-<div class="div_login">
+<div class="div_signup">
 	<p>
 		<%= f.label :username %>
 		<%= f.text_field :username %>
-	</p>
-
-	<p>
+	<br>
 		<%= f.label :first_name %>
 		<%= f.text_field :fname %>
-	</p>
-
-	<p>
+	<br>
 		<%= f.label :last_name %>
 		<%= f.text_field :lname %>
-	</p>
-
-	<p>
+	<br>
 		<%= f.label :email %>
 		<%= f.email_field :email %>
-	</p>
-
-	<p>
+	<br>
 		<%= f.label :password %>
 		<%= f.password_field :password %>
-	</p>
+	<br>
 
-	<p>
+	<p class="submit_login">
 		<%= f.submit :submit %>
+	</p>
 <% end %>
 </div>

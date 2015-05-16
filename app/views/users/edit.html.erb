@@ -1,11 +1,11 @@
-<h1>
+<h1 class="div_titles">
 	Edit your information!
 </h1>
 
 <%= render 'form' %>
 
 <% if current_user %>
-	<p>
+	<p class="div_titles">
 		<%= link_to 'delete account?', user_path(current_user), method: :delete %>
 	</p>
 <% end %>

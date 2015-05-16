@@ -1,9 +1,36 @@
-<h1>
+<h1 class="div_titles">
 	All posts
 </h1>
 
 <!-- form_for helper and arguments
  -->
+<<<<<<< HEAD
+<div class="posts_index">
+<hr>
+<% @posts.reverse_each do |post| %>
+	<p class="user_post_title">
+		<%= link_to post.title, post_path(post.id) %>
+	</p>
+		<p class="user_post_body">
+			<%= post.p_content %>
+			<span class="user_post_body"><%= post.user.username %>
+			</span></p>
+		<p class="user_post_time">
+			<%= post.created_at %>
+		</p>
+		<hr>
+		<br> <p>
+			<% post.comments.reverse_each do |comment| %>
+				
+					<p><%= comment.body %><br>
+					<%= comment.user.username %><br>
+					<%= comment.created_at %><br>
+				<% end %>
+				</p>
+			<% end %>
+</div>
+
+=======
 
  <h1>
 	Add a post
@@ -30,3 +57,4 @@
 		<%= render partial: 'post', object: post %>
 	<% end %>
 </section>
+>>>>>>> master

@@ -29,18 +29,23 @@ body{
 
 }
 .ul_nav{
+	margin-right: 20px;
 	height:62px;
 	width: 100%;
 	background-color:#FFD98D;
 	position: relative;
 	margin-top: 0px;
 	font-size: 	23px;
-	text-align: right;
+	text-align: center;
 	padding-right: 10px;
 	text-shadow: 1px -1px 1px #F17A00;
 }
 .wrapper{
 	background-color: 
+}
+nav{
+	width: 100%;
+
 }
 nav ul {
 	list-style: none;
@@ -75,18 +80,64 @@ a:active {
   color: #F17A00;
 }
 /*SESSION NEW______________________*/
-.div_login{
-	width: 300px;
+.div_signup{
+	height:179px;
+	width: 245px;
 	background-color: rgba(255, 255, 255, 0.5);
 /*	margin-top: -11px;
 */	text-align: center;
 	padding: 1px 0px;
 	margin: 0 auto;
-	color:#F17A40	;
-	font-size: 20px;
-
-
+	color:#F04B00	;
+	font-size: 18px;
+	padding: 0px;
+	text-align:right;
+	padding-right: 10px;
+	margin-top: -21px;
+  	padding-top: 20px;
+  	line-height: 25px;
 }
+.div_user_index{
+	height:150px;
+	width: 245px;
+	background-color: rgba(255, 255, 255, 0.5);
+/*	margin-top: -11px;
+*/	text-align: center;
+	margin: 0 auto;
+	color:#F04B00;
+	font-size: 18px;
+	text-align:left;
+	padding-right: 10px;
+	margin-top: -21px;
+  	padding-top: 20px;
+  	line-height: 25px;
+  	padding-left: 4px;
+}
+.div_user_index ol li a {
+	font-size: 24px;
+	color: #B23700;
+  	margin-left: -3px;
+  	}
+
+.div_login{
+	height:150px;
+	width: 245px;
+	background-color: rgba(255, 255, 255, 0.5);
+/*	margin-top: -11px;
+*/	text-align: center;
+	padding: 1px 0px;
+	margin: 0 auto;
+	color:#F04B00	;
+	font-size: 18px;
+	padding: 0px;
+	text-align:right;
+	padding-right: 10px;
+	margin-top: -21px;
+  	padding-top: 50px;
+  	line-height: 25px;
+}
+
+
 .submit_login input{
 	background-color:rgba(255, 217, 141, 0.3);
 	font-size: 	15px;
@@ -98,8 +149,19 @@ a:active {
 	color:#F17A00;
 	padding-left: 10px;
 }
+.div_titles{
+	background-color: rgba(255,255,255,0.5);
+	text-align: center;
+	color: #F04B00;
+	text-shadow: 1px 2px -1px #f00;
+	padding-bottom: 10px;
+}
+
+
 .submit_login {
 	padding-left: 130px;
+	margin-top: -21px;
+  	padding-top: 20px;
 }
 .posts_show{
 	width: 300px;
@@ -109,23 +171,59 @@ a:active {
 	margin: 0 auto;
 	font-size: 20px;
 }
-#posts_show_title{
+.posts_index{
+	width: 66%;
+	background-color: rgba(255,255,255,0.95);
+	text-align: center;
+	padding: 1px 0px;
+	margin: 0 auto;
+	font-size: 20px;
+	padding-top: 0px;
+  	margin-top: -21px;
+}
+.posts_show_title{
 	color: #000;
 	font-size: 22px;
 }
-#posts_show_body{
+.posts_show_body{
 	color: #000;
+	font-size: 18px;
+}
+
+.div_post{
+	width: 50%;
+	background-color: rgba(255, 255, 255, 0.5);
+	text-align: center;
+	padding: 1px 0px;
+	margin: 0 auto;
+	color:#F17A40	;
+	font-size: 20px;
+	font-family: helvetica;
+	color:black ;
+}
+#div_post_p{
+	font-size: 20px;
+}
+ 
+.user_post_title a{
+	font-size: 20px;
+	color: #F04B00
+
+}
+.user_post_body{
 	font-size: 18px;
 
 }
-
-
-
-
-
-
-
-
+.user_post_time{
+	font-size: 14px;
+	font-style: italic;
+	text-align: left;
+}
+hr{
+	color: #FFD98D;
+	background-color: #FFD98D;
+	border-top: 1px double;
+}
 
 
 
