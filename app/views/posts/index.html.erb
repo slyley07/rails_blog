@@ -5,36 +5,28 @@
 <!-- form_for helper and arguments
  -->
 
-<% @posts.reverse_each do |post| %>
-	<h2>
-		<%= link_to post.title, post_path(post.id) %>
-	</h2>
+ <h1>
+	Add a post
+</h1>
+
+<%= form_for @post, remote: true do |post| %>
 
 	<p>
-		<%= post.p_content %>
+		<%= post.label :title %>
+		<%= post.text_field :title %>
 	</p>
 
-	<ul>
-		<li>
-			<%= post.user.username %>
-		</li>
-	
-		<li>
-			<%= post.created_at %>
-		</li>
+	<p>
+		<%= post.label :post %>
+		<%= post.text_area :p_content %>
+	</p>
 
-			<% post.comments.reverse_each do |comment| %>
-				<li>
-					<%= comment.body %>
-				</li>
-
-				<li>
-					<%= comment.user.username %>
-				</li>
-
-				<li>
-					<%= comment.created_at %>
-				</li>
-			<% end %>
-	</ul>
+	<p>
+		<%= post.submit %>
+	</p>
 <% end %>
+<section id="posts_container">
+	<% @posts.reverse_each do |post| %>
+		<%= render partial: 'post', object: post %>
+	<% end %>
+</section>

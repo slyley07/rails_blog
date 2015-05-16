@@ -14,3 +14,27 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(document).on("page:change", function() {
+	$("[data-deletable]").on("ajax:complete", function(e) {
+		$(e.currentTarget).closest('div').fadeOut();
+	})
+
+	$("[data-follow]").on("ajax:complete", function(e) {
+		$(e.currentTarget).hide();
+		$(e.currentTarget).show();
+	})
+
+	$("[data-unfollow]").on("ajax:complete", function(e){
+		$(e.currentTarget).hide();
+		$(e.currentTarget).show();
+	})
+});
+
+$(document).on("page:fetch", function(){
+	$('body').css("cursor", "wait");
+})
+
+$(document).on("page:receive", function(){
+	$('body').css("cursor", "default");
+})
+
