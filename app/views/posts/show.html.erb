@@ -1,9 +1,9 @@
 <div class="posts_show">
-	<h2 id="posts_show_title">
+	<p class="posts_show_title">
 		<%= @post.title %>
-	</h2>
+	</p>
 
-	<p id="posts_show_body">
+	<p class="posts_show_body">
 		<%= @post.p_content %>
 	</p>
 
@@ -36,19 +36,14 @@
 	<% end %>
 
 	<% @post.comments.reverse_each do |comment| %>
-		<p>
+			<p>
 			<%= comment.body %>
-		</p>
-
-		<ul>
-			<li>
+			<br>
 				<%= comment.user.username %>
-			</li>
-
-			<li>
+			<br>
 				<%= comment.created_at %>
-			</li>
-		</ul>
+			</p>
+
 	<% end %>
 </div>
 

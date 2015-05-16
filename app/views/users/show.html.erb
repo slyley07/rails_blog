@@ -1,23 +1,22 @@
-
-<h1>
+<div class="div_post">
+<h4 class="div_titles">
 	<%= "#{@user.username}'s Posts" %>
-</h1>
+</h4>
 
-<ul>
+<ul ><hr>
 	<% @user_posts.reverse_each do |post| %>
-		<h2>
+		<p class="user_post_title">
 			<%= link_to post.title, post_path(post.id) %>
-		</h2>
+		<br>
 		
-		<p>
+		<span class="user_post_body">
 			<%= post.p_content %>
-		</p>
+		</span>
 
-		<ul>
-			<li>
+		<p class="user_post_time">
 				<%= post.created_at %>
-			</li>
-		</ul>
+		</p><hr>
 	<% end %>
 </ul>
+</div>
 
