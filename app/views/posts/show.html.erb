@@ -35,7 +35,6 @@
 		</h5>
 	<% end %>
 
-<<<<<<< HEAD
 	<% @post.comments.reverse_each do |comment| %>
 			<p>
 			<%= comment.body %>
@@ -46,13 +45,12 @@
 			</p>
 
 	<% end %>
-=======
+
 	<section id="comments_container">
 		<% @comments.reverse_each do |comment| %>
 			<%= render partial: 'comments/comment', object: comment%>
 		<% end %>
 	</section>
->>>>>>> master
 </div>
 
 
